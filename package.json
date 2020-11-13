@@ -1,0 +1,40 @@
+{
+  "name": "exemplo-jest",
+  "version": "1.0.0",
+  "description": "Projeto de CMS para exemplo de teste unitário",
+  "main": "server.js",
+  "engines": {
+    "node": "12.16.3"
+  },
+  "scripts": {
+    "test": "NODE_ENV= jest",
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Thais Viana",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
+  },
+  "dependencies": {
+    "config": "^3.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "mongoose": "^5.9.5"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.4",
+    "supertest": "^6.0.1"
+  }
+}
