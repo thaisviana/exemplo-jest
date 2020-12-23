@@ -15,4 +15,35 @@ router.get('/', async (req, res, next) => {
     }
   })
 
+// @route    GET /movies/:id
+// @desc     LIST movies/:is
+// @access   Public
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id
+      const movie = await Movie.findById(id)
+      res.json(movie)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send({ "error": 'Erro!' })
+  }
+})
+
+// @route    POST /movies
+// @desc     ADD movies
+// @access   Public
+router.post('/', async (req, res, next) => {
+  try {
+    let movie = new Movie(req.body)
+    await movie.save()
+    if (movie.id) {
+        res.json(movie);
+    }
+
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send({ "error": 'Erro!' })
+  }
+})
+
 module.exports = router;
