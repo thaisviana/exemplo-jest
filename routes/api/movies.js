@@ -7,7 +7,8 @@ const Movie = require('../../models/movies')
 // @access   Public
 router.get('/', async (req, res, next) => {
     try {
-        const movie = await Movie.find({}).limit(50)
+        const skip = 50 * (req.query.page || 0)
+        const movie = await Movie.find({}).skip(skip).limit(50)
         res.json(movie)
     } catch (err) {
       console.error(err.message)
