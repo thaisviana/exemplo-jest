@@ -5,6 +5,10 @@ const MoviesSchema = new mongoose.Schema({
         type : String,
         required : false
     },
+    poster:{
+        type : String,
+        required : false
+    },
     fullplot : {
       type : String,
       required : false
