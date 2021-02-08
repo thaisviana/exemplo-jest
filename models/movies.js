@@ -51,5 +51,5 @@ const MoviesSchema = new mongoose.Schema({
       type: Array
     }
 }, { autoCreate : true })
-
+MoviesSchema.index({'$**': 'text'});
 module.exports = mongoose.model('movie', MoviesSchema);

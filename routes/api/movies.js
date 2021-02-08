@@ -8,7 +8,8 @@ const Movie = require('../../models/movies')
 router.get('/', async (req, res, next) => {
     try {
         const skip = 50 * (req.query.page || 0)
-        const movie = await Movie.find({}).skip(skip).limit(50)
+        let query = req.query.search? {$text: {$search: req.query.search}} : {}
+        const movie = await Movie.find(query).skip(skip).limit(50)
         res.json(movie)
     } catch (err) {
       console.error(err.message)
