@@ -17,6 +17,7 @@ connectDB()
 
 app.get('/', (req, res) => res.send('Hello!'))
 app.use('/movies', require('./routes/api/movies'))
+app.use('/genres', require('./routes/api/genres'))
 
 const server = app.listen(PORT, () => { console.log(`port ${PORT}`) })
 
